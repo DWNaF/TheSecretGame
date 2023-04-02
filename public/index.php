@@ -1,9 +1,7 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-require_once "autoload.php";
+require_once "../config/config.php";
+
 session_start();
 
 if (isset($_SESSION['secret_word'])) {
@@ -23,13 +21,13 @@ $game = new SecretWordGame($WORD);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="<?=CSS_PATH?>style.css">
+    <script src="<?=JS_PATH?>script.js"></script>
     <title>The Secret Game</title>
 </head>
 
 <body>
-    <?php include "header.php"; ?>
+    <?php include INCLUDES_PATH . "header.php"; ?>
 
     <div id="main_content" class="flex">
         <script>
@@ -80,7 +78,7 @@ $game = new SecretWordGame($WORD);
 
     </div>
 
-    <?php include "footer.php"; ?>
+    <?php include INCLUDES_PATH . "footer.php"; ?>
 
 </body>
 

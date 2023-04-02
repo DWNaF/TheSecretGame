@@ -2,7 +2,7 @@
 
     class Dictionnary{
 
-        private static string $FILENAME = "swg/files/liste_francais.txt";
+        private static string $FILENAME = "../data/dico_fr.txt";
 
 
 

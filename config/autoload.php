@@ -5,7 +5,7 @@ function autoload($class_name){
     $class_name = str_replace('\\', '/', $class_name) ;
 
     // on inclut le fichier correspondant
-    require 'swg/' . $class_name . '.php' ;
+    require '..' . DIRECTORY_SEPARATOR . 'swg' . DIRECTORY_SEPARATOR . $class_name . '.php' ;
 }
 spl_autoload_register('autoload') ;
 ?>

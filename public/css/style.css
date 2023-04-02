@@ -19,7 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 50px;
-    background-image: url(bg.jpg);
+    background-image: url("assets/bg.jpg");
     font-family: monospace;
 }
 
