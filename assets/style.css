@@ -1,0 +1,148 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    background-image: url(bg.jpg);
+    font-family: monospace;
+}
+
+header{
+    text-align: center;
+    height: 10%;
+}
+
+header > h1 {
+    font-size: 5rem;
+    padding: 30px;
+}
+
+#header_navbar{
+    display: flex;
+    justify-content: center;
+    gap : 30px;
+    font-size: 1.1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 6px 0;
+
+}
+
+#header_navbar > a {
+    text-decoration:underline;
+    color: rgb(71, 71, 255);
+}
+
+#main_content{
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+}
+
+
+#main_form{
+    width: 70%;
+    height: 150px;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+#letters_container{
+    flex-direction:row;
+    width: 100%;
+    height: 100%;
+    gap: 2%;
+}
+
+.letter_input{
+    font-size: 3rem;
+    width: 15%;
+    max-width: 100px;
+    height: 100%;
+    text-align: center;
+}
+
+.letter_hidden{
+    width: 15%;
+    max-width: 100px;
+    height: 100%;
+}
+ 
+#try_btn {
+    color: white;
+    font-size: 2rem;
+    width: 110px;
+    height: 70px;
+    background-color: rgb(36, 36, 36);
+    border: none;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px black;
+    cursor: pointer;
+
+}
+
+#indice_btn{
+    
+}
+
+
+footer { 
+    margin-top: auto;
+    text-align: center;
+    padding: 25px;
+    background-color: rgb(83, 36, 253);
+    color: white;
+    font-size: 1.1rem;
+}
+
+
+
+#rules_main_content{
+    font-size: 1.5rem;
+}
+
+#bold_text{
+    font-weight: bold;
+}
+
+
+#win_container{
+    height: 100%;
+    gap: 30px;
+}
+
+#win_container p:first-child{
+    font-size: 3.5rem;
+    font-style: italic;
+    font-weight: 200;
+}
+
+#win_msg{
+    font-size: 4rem;
+    color: rgb(0, 190, 181);
+}
+
+#redirection_msg{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgb(68, 68, 68);
+
+}
