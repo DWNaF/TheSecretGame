@@ -1,58 +1,70 @@
-
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
     let current = 0;
-    let next = -1;
 
     let all_inputs = document.querySelectorAll(".letter_input");
-    
-    next = next_input();
-    if (next != -1) {
-        current = next;
-        all_inputs[next].focus();
-    }
 
-    for (let i=0; i<all_inputs.length; i++){
+    let first_selected = false;
+    for (let i = 0; i < all_inputs.length; i++) {
         let input = all_inputs[i];
-        input.addEventListener('input', ()=>{
-            if (input.value.length > 1){
+
+        if (!first_selected && !input.disabled && input.type != "hidden") {
+            input.focus();
+            first_selected = true;
+        }
+
+        input.addEventListener('input', () => {
+            if (input.value.length > 1) {
                 input.value = input.value.slice(1, 2);
             }
-            next = next_input();
-            if (next != -1){
-                current = next;
-                all_inputs[next].focus();
-            }
+            next_input().focus();
         });
     }
 
-    function next_input(){
-        for (let i=0; i<all_inputs.length; i++){
-            if (!all_inputs[i].disabled && all_inputs[i].type != "hidden" && all_inputs[i].value.length == 0){
-                return i;
+    function previous_input() {
+        if (current - 1 < 0) {
+            return all_inputs[current];
+        }
+        current--;
+        let previous_input = all_inputs[current];
+        while (previous_input.disabled || previous_input.type == "hidden") {
+            if (current - 1 >= 0) {
+                current--;
+                previous_input = all_inputs[current];
+            } else {
+                break;
             }
         }
-        return -1;
+        return previous_input;
     }
 
-    document.addEventListener('keydown', (e)=>{
-        if (e.key == "ArrowRight"){
-            if (current < all_inputs.length-1){
-                all_inputs[current+1].focus();
+    function next_input() {
+        if (current + 1 >= all_inputs.length) {
+            return all_inputs[current];
+        }
+        current++;
+        let next_input = all_inputs[current];
+        while (next_input.disabled || next_input.type == "hidden") {
+            if (current + 1 < all_inputs.length) {
                 current++;
+                next_input = all_inputs[current];
+            } else {
+                break;
             }
-    }});
-    
-    document.addEventListener('keydown', (e)=>{
-        if (e.key == "ArrowLeft"){
-            if (current > 0){
-                all_inputs[current-1].focus();
-                current--;
-            }
-    }});
-
-    function get_current(){
-        return current;
+        }
+        return next_input;
     }
 
+    document.addEventListener('keydown', (e) => {
+        if (e.key == "ArrowRight") {
+            next_input().focus();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key == "ArrowLeft") {
+            all_inputs[current].setSelectionRange(0,0);
+            previous_input().focus();
+        }
+    });
 
 })

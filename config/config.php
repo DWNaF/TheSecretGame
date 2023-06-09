@@ -11,7 +11,7 @@ if (!defined('ROOT_PATH')) {
 }
 
 if (!defined('ABS_PATH')){
-    define('ABS_PATH', DIRECTORY_SEPARATOR . 'TheSecretGame' . DIRECTORY_SEPARATOR);
+    define('ABS_PATH', DIRECTORY_SEPARATOR . basename(dirname(dirname(__FILE__))) . DIRECTORY_SEPARATOR);
 }
 
 if (!defined('CSS_PATH')) {
